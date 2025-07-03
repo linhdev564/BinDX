@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tải Video TikTok - BinDX</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/download_page.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">BinD<span class="blue">X</span></div>
+        <div class="language">Languages</div>
+    </header>
+
+    <section class="hero">
+        <h1>Tải Video TikTok</h1>
+        <p>Không logo, hình mờ, watermark</p>
+        <div class="input-group">
+            <input id="input-url" type="text" placeholder="Dán liên kết TikTok vào đây">
+            <button class="paste-btn">📋 Dán</button>
+            <button id="download-btn" class="download-btn">⬇ Download</button>
+        </div>
+    </section>
+
+    <section class="content">
+        <h2>Tải ứng dụng SnapTik</h2>
+        <p>Hiện BinDX cung cấp một ứng dụng cho phép tải video TikTok. Nó nhanh, dễ sử dụng, không có hình mờ và chất lượng HD.</p>
+        <div class="app-buttons" hidden>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="store-btn">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" class="store-btn">
+        </div>
+
+        <h3>Download video TikTok không bị dính logo (watermark) miễn phí</h3>
+        <p>BinDX.com cung cụ tải video TikTok online mà không bị dính logo mờ...</p>
+    </section>
+
+    <footer>
+        <div class="footer-section">
+            <h4>Company</h4>
+            <p>Liên hệ</p>
+        </div>
+        <div class="footer-section">
+            <h4>Legal</h4>
+            <p>Điều khoản dịch vụ</p>
+            <p>Chính sách bảo mật</p>
+        </div>
+        <div class="footer-section">
+            <h4>Tools</h4>
+            <p>Download video, photo TikTok</p>
+        </div>
+    </footer>
+</body>
+</html>
+<script>
+document.getElementById('download-btn').onclick = function() {
+    const url = document.getElementById('input-url').value;
+    fetch('/api/download', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ tiktok_url: url })
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('Lỗi tải video');
+        return response.blob();
+    })
+    .then(blob => {
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = downloadUrl;
+        a.download = 'tiktok_video.mp4';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(downloadUrl);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Đã xảy ra lỗi khi tải video.');
+    });
+};
+</script>

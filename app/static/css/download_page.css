@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo .blue {
+    color: #3b82f6;
+}
+
+.language {
+    color: #333;
+    cursor: pointer;
+}
+
+.hero {
+    background-color: #3b4cca;
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.input-group {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.input-group input {
+    padding: 0.75rem;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+}
+
+.paste-btn,
+.download-btn {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.paste-btn {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.download-btn {
+    background-color: #00c851;
+    color: white;
+}
+
+.content {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+.app-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.store-btn {
+    height: 50px;
+    object-fit: contain;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #f3f3f3;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.footer-section p {
+    margin: 0.25rem 0;
+    color: #555;
+}

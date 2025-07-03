@@ -1,9 +1,9 @@
 from flask import Flask
-from . import routes
+from .routes.routes import init_routes
 
 def create_app():
     app = Flask(__name__)
 
-    routes.init_routes(app)
-
+    init_routes(app)
+    app.run(debug=True)
     return app
